@@ -1,0 +1,39 @@
+http:
+  cgi: php
+  auth: true
+  handler: cgi
+  routes:
+    /blog:
+      auth: true
+      handler: m # /blog
+      routes:
+        /new:
+          handler: perlinpinpin$=
+        /admin/foo:
+          auth: false
+          handler: lacampagne-adm
+        /*:
+          handler: zef
+# ORazeazez
+http:
+  cgi: php
+  auth: true
+  handler: cgi
+  routes:
+    /blog:
+      auth: true
+      handler: m
+      exact: true # false by default
+      routes:
+        /new:
+          handler: perlinpinpin$=
+        /admin/foo:
+          auth: false
+          handler: lacampagne-adm
+
+cgi:
+  php:
+    host: localhost
+    port: 1234
+  ruby:
+  perl:
